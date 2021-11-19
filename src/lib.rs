@@ -1,3 +1,5 @@
+#![no_std]
+
 pub const DATA_FRAME_SIZE: usize = 7;
 
 const DATA_FRAME_START_BYTE: u8 = 104u8;
@@ -164,7 +166,6 @@ fn checksum(b: &[u8]) -> u8 {
     // TODO: can we do the modulo inline to avoid up-casting to u16? Is it worth it?
     (b.iter().map(|x| *x as u16).sum::<u16>() % 256) as u8
 }
-
 
 #[cfg(test)]
 mod tests {
